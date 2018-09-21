@@ -8,8 +8,8 @@
 import java.util.Random;
 public class Simulation
 {
-    private int pointsInCircle;
-    private int totalPoints;
+    private long pointsInCircle;
+    private long totalPoints;
     private static float radius = 0.5f;
     private static Random r = new Random();
     
@@ -32,15 +32,21 @@ public class Simulation
         }
     }
     
-    public float getPiEstimation(){
-        return 4*(((float)(pointsInCircle))/((float)(totalPoints)));
+    public void addNPoints(int n){
+        for(int i = 0; i < n; i++){
+            addPoint();
+        }
     }
     
-    public int getPointsInCircle(){
+    public double getPiEstimation(){
+        return 4*((double)pointsInCircle)/((double)totalPoints);
+    }
+    
+    public long getPointsInCircle(){
         return pointsInCircle;
     }
     
-    public int getTotalPoints(){
+    public long getTotalPoints(){
         return totalPoints;
     }
 }
